@@ -19,7 +19,7 @@ export class CheckoutService {
         }
 
         // 2. Dependência Externa: Cobrança
-        const respostaPgto = await this.gatewayPagamento.cobrar(totalFinal, cartaoCredito);
+        const respostaPgto = await this.gatewayPagamento.cobrar(totalFinal, carrinho.user);
 
         if (!respostaPgto.success) {
             return null; // Falha no pagamento
